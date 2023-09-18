@@ -24,15 +24,41 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+h1 {
+  text-align: center;
+  background-color: grey;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+div {
+  padding: 20px;
+}
+
+.card {
+  display: inline-block;
+  vertical-align: top;
+  font-family: system-ui;
+  background: #428d9a;
+  color: rgb(230, 230, 230);
+  text-align: center;
+  width: 180px;
+  height: 275px;
+  margin: 10px;
+  padding: 10px;
+  position: relative;
+}
+
+.title {
+  padding: 10px;
+  font-weight: bolder;
+  size: 36px;
+}
+
+.desc {
+  font-style: italic;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
