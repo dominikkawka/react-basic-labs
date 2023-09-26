@@ -10,7 +10,10 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import { Chip } from '@mui/material';
 
+
+
 const Task = (props) => {
+
   return (
     <Grid item key={props.id} xs={12} md={4}>
     <Card sx={{ backgroundColor: props.done ? 'lightgrey' : 'lightblue', padding: '20px' }}> 
@@ -32,7 +35,7 @@ const Task = (props) => {
                 {props.description}
                 <img src={props.image} className='taskImage'></img>                
             </Typography>
-          <Chip label={props.priority} sx={{color: 'white'}}/>
+          <Chip label={props.priority} sx={{backgroundColor:`${props.priorityColour}` ,color: 'white'}}></Chip>
         </CardContent>
         <CardActions sx={{justifyContent: 'space-between', padding: '20px'}}>
             <Button variant="contained" size="small" color="success" onClick={props.markDone}>Done</Button>

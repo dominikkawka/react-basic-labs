@@ -3,7 +3,7 @@ import React from "react";
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import { InputLabel, Select, MenuItem } from "@mui/material";
+import { Select, MenuItem } from "@mui/material";
 
 const AddTaskForm = (props) => {
 
@@ -32,9 +32,9 @@ const AddTaskForm = (props) => {
                 value={props.priority}
                 label="priority"
                 onChange={(event) => props.change(event)}>
-                <MenuItem value="green">Low</MenuItem>
-                <MenuItem value="orange">Medium</MenuItem>
-                <MenuItem value="red">High</MenuItem>
+                <MenuItem value="low">Low</MenuItem>
+                <MenuItem value="medium">Medium</MenuItem>
+                <MenuItem value="high">High</MenuItem>
             </Select>
 
     </div>

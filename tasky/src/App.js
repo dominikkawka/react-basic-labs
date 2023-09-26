@@ -17,38 +17,29 @@ function App() {
   const [ taskState, setTaskState ] = useState({
     tasks: [
       { 
-        id:0,
-        title:"Dishes",
-        desc: "load the dishwasher then turn on economy mode.", 
-        deadline: "Today", 
-        image:"https://media.cnn.com/api/v1/images/stellar/prod/200414152441-disheslead.jpg?q=w_2500,h_1404,x_0,y_0,c_fill",
-        priority:"low",
-      }, { 
-        id:1,
-        title:"Laundry", 
-        desc: "white clothes only today, don't add a pink sock", 
-        deadline: "Tomorrow", 
-        image:"https://www.southernliving.com/thmb/fREfOLpj1mgx6mYIJZib5bZk8oo=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-82567372-37f5a01901b44e8580d043b1a8dd2f8d.jpg",
-      }, { 
         id:2,
         title:"Tidy up",
         desc:"don't be so gloom, take the broom and go tidy your room",
         deadline: "Today", 
         image:"https://housewifehowtos.com/wp-content/uploads/2021/08/signs-of-a-tidy-home-person.jpeg",
-        priority:"medium"
+        priority:"medium",
+        priorityColour:"orange",
       }, {
         id:3,
         title:"Shopping",
         desc:"buy some butter, bread, salt and some edam cheese",
         deadline:"Sunday",
         image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaEwsdeLWnWCVWNOM0xy-v-n8qun_RX_VDPOzl1cUBK7VVR5rdhkvWqTFjQQ9OUOamPHc&usqp=CAU",
+        priority:"low",
+        priorityColour:"green",
       }, {
         id:4,
         title:"Project",
         desc:"need to plug in web cam set up+ raspberry pi for face recognition",
         deadline:"next week",
         image:"https://how2electronics.com/wp-content/uploads/2022/03/Getting-Started-Setting-up-Raspberry-Pi-4-Model-B-778x439.jpg",
-        priority:"high"
+        priority:"high",
+        priorityColour:"red",
       },
     ]
   });
@@ -56,7 +47,7 @@ function App() {
   const [ formState, setFormState ] = useState({
     title: "",
     description: "",
-    deadline: ""
+    deadline: "",
   });
 
   const doneHandler = (taskIndex) => {
@@ -86,10 +77,23 @@ function App() {
           form.deadline = event.target.value;
           break;
       case "priority":
-        form.priority = event.target.value;
-        break;
+          form.priority = event.target.value;
+          break;
       default:
           form = formState;
+    }
+
+    const chipColour = form.priority
+    switch(chipColour){
+      case 'low':
+        form.priorityColour = 'green'
+        break;
+      case 'medium':
+        form.priorityColour = 'orange'
+        break;
+      case 'high':
+        form.priorityColour = 'red'
+        break;
     }
     setFormState(form);
     console.log(formState);
@@ -144,6 +148,7 @@ function App() {
                 done={task.done}
                 image={task.image}
                 priority={task.priority}
+                priorityColour={task.priorityColour}
                 markDone = {() => doneHandler(index)}
                 deleteTask = {() => deleteHandler(index)}
               />
