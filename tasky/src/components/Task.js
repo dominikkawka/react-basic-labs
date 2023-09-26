@@ -7,8 +7,9 @@ const Task = (props) => {
       <p>{props.title} is due {props.deadline}</p>
       <p className="desc">{props.desc}</p>
       <hr></hr>
-      <img src={props.image} height="80px" width="80px"></img>
-      
+      <img src={props.image} className="taskImage"></img>
+      <button onClick={props.markDone} className='doneButton'>Done</button>
+      <button onClick={props.deleteTask} className='deleteButton'>Delete</button>
     </div>
   )
 }
