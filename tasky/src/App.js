@@ -22,6 +22,7 @@ function App() {
         desc: "load the dishwasher then turn on economy mode.", 
         deadline: "Today", 
         image:"https://media.cnn.com/api/v1/images/stellar/prod/200414152441-disheslead.jpg?q=w_2500,h_1404,x_0,y_0,c_fill",
+        priority:"low",
       }, { 
         id:1,
         title:"Laundry", 
@@ -34,6 +35,7 @@ function App() {
         desc:"don't be so gloom, take the broom and go tidy your room",
         deadline: "Today", 
         image:"https://housewifehowtos.com/wp-content/uploads/2021/08/signs-of-a-tidy-home-person.jpeg",
+        priority:"medium"
       }, {
         id:3,
         title:"Shopping",
@@ -46,6 +48,7 @@ function App() {
         desc:"need to plug in web cam set up+ raspberry pi for face recognition",
         deadline:"next week",
         image:"https://how2electronics.com/wp-content/uploads/2022/03/Getting-Started-Setting-up-Raspberry-Pi-4-Model-B-778x439.jpg",
+        priority:"high"
       },
     ]
   });
@@ -82,11 +85,14 @@ function App() {
       case "deadline":
           form.deadline = event.target.value;
           break;
+      case "priority":
+        form.priority = event.target.value;
+        break;
       default:
           form = formState;
     }
     setFormState(form);
-    //console.log(formState);
+    console.log(formState);
   }
 
   const formSubmitHandler = (event) => {
@@ -137,6 +143,7 @@ function App() {
                 deadline={task.deadline}
                 done={task.done}
                 image={task.image}
+                priority={task.priority}
                 markDone = {() => doneHandler(index)}
                 deleteTask = {() => deleteHandler(index)}
               />

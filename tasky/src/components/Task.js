@@ -8,6 +8,7 @@ import CardContent from '@mui/material/CardContent';
 import CardHeader from '@mui/material/CardHeader';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
+import { Chip } from '@mui/material';
 
 const Task = (props) => {
   return (
@@ -29,8 +30,9 @@ const Task = (props) => {
                 align="center"
                 sx={{ fontStyle: 'italic'}}>
                 {props.description}
-                <img src={props.image} className='taskImage'></img>
+                <img src={props.image} className='taskImage'></img>                
             </Typography>
+          <Chip label={props.priority} sx={{color: 'white'}}/>
         </CardContent>
         <CardActions sx={{justifyContent: 'space-between', padding: '20px'}}>
             <Button variant="contained" size="small" color="success" onClick={props.markDone}>Done</Button>

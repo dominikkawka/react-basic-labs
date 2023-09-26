@@ -3,6 +3,7 @@ import React from "react";
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
+import { InputLabel, Select, MenuItem } from "@mui/material";
 
 const AddTaskForm = (props) => {
 
@@ -22,6 +23,20 @@ const AddTaskForm = (props) => {
     <div>
       <TextField name="description" id="outlined-multiline-static" label="Task Details"
         InputLabelProps={{ shrink: true }} multiline rows={4} onChange={(event) => props.change(event)} />
+    </div>
+    <div>
+            <Select
+                name="priority"
+                labelId="priority"
+                id="selectPriority"
+                value={props.priority}
+                label="priority"
+                onChange={(event) => props.change(event)}>
+                <MenuItem value="green">Low</MenuItem>
+                <MenuItem value="orange">Medium</MenuItem>
+                <MenuItem value="red">High</MenuItem>
+            </Select>
+
     </div>
     <div>
       <Button type="submit" variant="contained"
