@@ -33,7 +33,7 @@ const Task = (props) => {
                 align="center"
                 sx={{ fontStyle: 'italic'}}>
                 {props.description}
-                <img src={props.image} className='taskImage'></img>                
+                <img src={props.image} alt={props.title} className='taskImage'></img>                
             </Typography>
           <Chip label={props.priority} sx={{backgroundColor:`${props.priorityColour}` ,color: 'white'}}></Chip>
         </CardContent>

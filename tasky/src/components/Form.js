@@ -3,7 +3,12 @@ import React from "react";
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import { Select, MenuItem } from "@mui/material";
+import { Select, MenuItem, InputLabel } from "@mui/material";
+
+import ListItemIcon from '@mui/material/ListItemIcon';
+import AlarmAddIcon from '@mui/icons-material/AlarmAdd';
+import LowPriorityIcon from '@mui/icons-material/LowPriority';
+import PriorityHighIcon from '@mui/icons-material/PriorityHigh';
 
 const AddTaskForm = (props) => {
 
@@ -25,6 +30,7 @@ const AddTaskForm = (props) => {
         InputLabelProps={{ shrink: true }} multiline rows={4} onChange={(event) => props.change(event)} />
     </div>
     <div>
+          <InputLabel id="demo-select-small-label">Select Priority</InputLabel>
             <Select
                 name="priority"
                 labelId="priority"
@@ -32,9 +38,21 @@ const AddTaskForm = (props) => {
                 value={props.priority}
                 label="priority"
                 onChange={(event) => props.change(event)}>
-                <MenuItem value="low">Low</MenuItem>
-                <MenuItem value="medium">Medium</MenuItem>
-                <MenuItem value="high">High</MenuItem>
+                <MenuItem value="low">
+                  <ListItemIcon>
+                    <LowPriorityIcon />
+                  </ListItemIcon>
+                  Low</MenuItem>
+                <MenuItem value="medium">
+                  <ListItemIcon>
+                    <AlarmAddIcon />
+                  </ListItemIcon>
+                  Medium</MenuItem>
+                <MenuItem value="high">
+                  <ListItemIcon>
+                    <PriorityHighIcon />
+                  </ListItemIcon>
+                  High</MenuItem>
             </Select>
 
     </div>
