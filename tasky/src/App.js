@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import Task from './components/Task.js';
 import AddTaskForm from './components/Form';
@@ -8,9 +7,6 @@ import { v4 as uuidv4 } from 'uuid';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
-
-
-
 
 function App() {
   
@@ -66,9 +62,11 @@ function App() {
   const formChangeHandler = (event) => {
     let form = {...formState};
 
+const imageNotFound = "https://www.salonlfc.com/wp-content/uploads/2018/01/image-not-found-1-scaled-1150x647.png"
     switch(event.target.name) {
       case "title":
           form.title = event.target.value;
+          form.image = imageNotFound;
           break;
       case "description":
           form.description = event.target.value;
@@ -94,6 +92,9 @@ function App() {
       case 'high':
         form.priorityColour = 'red'
         break;
+      default:
+        form.priority = 'undefined'
+        form.priorityColour = 'blue'
     }
     setFormState(form);
     console.log(formState);
